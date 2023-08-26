@@ -42,10 +42,10 @@ namespace Sales.Backend.Controllers
             return Ok(country);
         }
 
-        [HttpPut("{id}")]
-        public async Task<ActionResult> PutAsync(int id, Country country)
+        [HttpPut]
+        public async Task<ActionResult> PutAsync(Country country)
         {
-            Country? currentCountry = await _dataContext.countries.FirstOrDefaultAsync(c => c.Id == id);
+            Country? currentCountry = await _dataContext.countries.FirstOrDefaultAsync(c => c.Id == country.Id);
 
             if (currentCountry == null)
             {
